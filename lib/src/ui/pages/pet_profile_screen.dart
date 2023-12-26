@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:softpati/src/ui/pages/drawer.dart';
+import 'package:softpati/src/ui/pages/user_profil_screen.dart';
 
 class PetProfileScreen extends StatefulWidget {
   const PetProfileScreen({super.key});
@@ -11,6 +13,8 @@ class _PetProfileScreenState extends State<PetProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar( backgroundColor: Color.fromARGB(255, 247, 223, 231),),
+         drawer:ComtDrawer(),
       backgroundColor: Color.fromARGB(255, 247, 223, 231),
       body: SingleChildScrollView(
         child: Container(
@@ -206,7 +210,13 @@ class _PetProfileScreenState extends State<PetProfileScreen> {
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           IconButton(onPressed:(){}, icon: Icon(Icons.message)),
-                                          IconButton(onPressed:(){}, icon :Icon(Icons.add)),
+                                          IconButton(onPressed:  () {
+                                            Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => UserProfileScreen(),
+        ),);
+                                          }, icon :Icon(Icons.add)),
                                         ],
                                       ),
                                     )

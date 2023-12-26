@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:softpati/src/ui/pages/drawer.dart';
 
 class UserProfileScreen extends StatelessWidget {
   const UserProfileScreen({Key? key}) : super(key: key);
@@ -8,6 +9,7 @@ class UserProfileScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        drawer:ComtDrawer(),
         appBar: AppBar(
           title: Column(
             children: [

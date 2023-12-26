@@ -30,7 +30,7 @@ class ConstantsColor {
 
   static const pinkColor = const Color(0xfffcd6da);
   static const lightPinkColor = const Color(0xfffcebed);
-  static const redColor = const Color(0xffee6463);
+  //static const redColor = const Color(0xffee6463);
   static const blueColor = const Color(0xff2477fd);
   static const lightblueColor = const Color(0xfff6fafd);
 }

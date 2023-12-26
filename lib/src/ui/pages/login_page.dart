@@ -78,9 +78,7 @@ class _PageLoginState extends State<PageLogin> {
                               );
                             },
                           ),
-                          RichText(
-                            text: TextSpan(text: "Denem"),
-                          ),
+                         
                           Container(
                               padding: EdgeInsets.all(10),
                               child: Center(

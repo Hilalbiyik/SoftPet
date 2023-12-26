@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:softpati/src/ui/pages/pet_profile_screen.dart';
+import 'package:softpati/src/ui/pages/sahiplen_page.dart';
 import 'package:softpati/theme/app_color.dart';
 
 class CustomCard extends StatelessWidget {
@@ -17,38 +19,45 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
-      color: backgroundColor,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            // Text(
-            //   icon,
-            //   textAlign: TextAlign.left,
-            //   //style: TextStyle(fontSize: 20, color: Colors.white),
-            // ),
-            CircleAvatar(
-              backgroundColor: Colors.white.withOpacity(0.2),
-              radius: 15,
-              child: Text(icon),
-            ),
-            Text(title,
-                style: GoogleFonts.outfit(
-                  textStyle: textTheme.subtitle2,
-                )),
+    return GestureDetector(   onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SahiplenPage(),
+        ),),
 
-            Text(
-              subtitle,
-              style: GoogleFonts.outfit(
-                  textStyle: textTheme.subtitle2, color: Colors.grey),
-            ),
-          ],
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        color: backgroundColor,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              // Text(
+              //   icon,
+              //   textAlign: TextAlign.left,
+              //   //style: TextStyle(fontSize: 20, color: Colors.white),
+              // ),
+              CircleAvatar(
+                backgroundColor: Colors.white.withOpacity(0.2),
+                radius: 15,
+                child: Text(icon),
+              ),
+              Text(title,
+                  style: GoogleFonts.outfit(
+                    textStyle: textTheme.subtitle2,
+                  )),
+      
+              Text(
+                subtitle,
+                style: GoogleFonts.outfit(
+                    textStyle: textTheme.subtitle2, color: Colors.grey),
+              ),
+            ],
+          ),
         ),
       ),
     );

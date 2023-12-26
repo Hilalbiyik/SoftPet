@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:softpati/src/ui/component/card_widget.dart';
 import 'package:softpati/src/ui/component/comp_navbar.dart';
 import 'package:softpati/src/ui/pages/dene.dart';
+import 'package:softpati/src/ui/pages/drawer.dart';
+import 'package:softpati/src/ui/pages/pet_profile_screen.dart';
 import 'package:softpati/theme/app_color.dart';
 
 class PageHome extends StatefulWidget {
@@ -46,6 +48,8 @@ class _PageHomeState extends State<PageHome> {
     ];
 
     return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.white,),
+      drawer:ComtDrawer() ,
       backgroundColor: Colors.white,
       bottomNavigationBar: CompNavBar(),
       //bottomNavigationBar: buildBottomNavigationBar(navBarHeight, navBarWidth),
@@ -54,7 +58,13 @@ class _PageHomeState extends State<PageHome> {
         children: [
           Expanded(
               flex: 2,
-              child: buildHeaderItems(context, ConstantsAdress.avatarImage2)),
+              child: GestureDetector(
+                 onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PetProfileScreen(),
+        ),),
+                child: buildHeaderItems(context, ConstantsAdress.avatarImage2))),
           buildSearchBarItem(),
           Expanded(
             flex: 2,
