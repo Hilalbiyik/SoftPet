@@ -1,4 +1,4 @@
-# softpati
+# softPet
 
 A new Flutter project.
 
