@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:softpati/src/ui/pages/drawer.dart';
-import 'package:softpati/src/ui/pages/pet_profile_screen.dart';
- 
+import 'package:softpati/src/ui/component/drawer.dart';
+import 'package:softpati/src/ui/pages/petProfile/pet_profile_page.dart';
 
-class KayipPage extends StatefulWidget {
-  const KayipPage({super.key});
+class PageLost extends StatefulWidget {
+  const PageLost({super.key});
 
   @override
-  State<KayipPage> createState() => _KayipPageState();
+  State<PageLost> createState() => _PageLostState();
 }
 
-class _KayipPageState extends State<KayipPage> {
-  Widget _buildTrainingCard(String imagePath, String description,
-      String buttonText, Widget destinationPage, String descriptiontwo) {
+class _PageLostState extends State<PageLost> {
+  //String imagePath,
+  Widget _buildTrainingCard(String description, String buttonText,
+      Widget destinationPage, String descriptiontwo) {
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => PetProfileScreen(),
+          builder: (context) => PageProfilePet(),
         ),
       ),
       child: Container(
@@ -36,7 +36,7 @@ class _KayipPageState extends State<KayipPage> {
                   color: Color.fromARGB(255, 244, 226, 250),
                   width: double.infinity,
                   height: 80,
-                  child: Image.asset(imagePath),
+                  // child: Image.asset(imagePath),
                 ),
                 const SizedBox(
                   height: 5,
@@ -75,9 +75,10 @@ class _KayipPageState extends State<KayipPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-         drawer:ComtDrawer(),
-        appBar: AppBar(    backgroundColor: Color.fromARGB(255, 255, 255, 255),),
-  
+      drawer: CompDrawer(),
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      ),
       body: SafeArea(
         child: GridView.count(
           primary: false,
@@ -86,39 +87,34 @@ class _KayipPageState extends State<KayipPage> {
           mainAxisSpacing: 10,
           crossAxisCount: 2,
           children: [
-            _buildTrainingCard('assets/school.png', "4 Gün Önce ",
-                "İstabul/Fatih", PetProfileScreen(), "Kayıp Kedi"),
-            _buildTrainingCard('assets/school.png', "4 Gün Önce ",
-                "İstabul/Fatih", PetProfileScreen(), "Kayıp Kedi"),
+            _buildTrainingCard(
+                "4 Gün Önce ", "İstabul/Fatih", PageProfilePet(), "Kayıp Kedi"),
+            _buildTrainingCard(
+                "4 Gün Önce ", "İstabul/Fatih", PageProfilePet(), "Kayıp Kedi"),
             _buildTrainingCard(
                 "Backend Developer",
-                'assets/school.png',
                 "📝 Başvuruya açık - Son Başvuru Tarihi: 12.01.2024",
-                PetProfileScreen(),
+                PageProfilePet(),
                 "Kayıp Kedi"),
             _buildTrainingCard(
                 "Game Developer",
-                'assets/school.png',
                 "📝 Başvuruya açık - Son Başvuru Tarihi: 12.01.2024",
-                PetProfileScreen(),
+                PageProfilePet(),
                 "Kayıp Kedi"),
             _buildTrainingCard(
                 "Veri Analitiği",
-                'assets/school.png',
                 "🗓️ Başvuruya açıldığında burada ilan edilecektir.",
-                PetProfileScreen(),
+                PageProfilePet(),
                 "Kayıp Kedi"),
             _buildTrainingCard(
                 "Bilişim Güvenliği Mimarı",
-                'assets/school.png',
                 "🗓️ Başvuruya açıldığında burada ilan edilecektir",
-                PetProfileScreen(),
+                PageProfilePet(),
                 "Kayıp Kedi"),
             _buildTrainingCard(
                 "Embedded Systems Developer",
-                'assets/school.png',
                 "🗓️ Başvuruya açıldığında burada ilan edilecektir.",
-                PetProfileScreen(),
+                PageProfilePet(),
                 "Kayıp Kedi"),
           ],
         ),

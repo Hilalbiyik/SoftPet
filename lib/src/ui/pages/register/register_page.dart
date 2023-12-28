@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:softpati/src/ui/component/custom_button.dart';
 import 'package:softpati/src/ui/component/custom_text_field.dart';
-import 'package:softpati/src/ui/pages/home_page.dart';
+import 'package:softpati/src/ui/pages/home/home_page.dart';
+import 'package:softpati/src/ui/pages/login/login_page.dart';
 
 class PageRegister extends StatefulWidget {
   const PageRegister({super.key});
@@ -46,7 +47,7 @@ class _PageRegisterState extends State<PageRegister> {
                         children: [
                           //Login - Text
                           Text(
-                            'Sign Up',
+                            'Hesap Oluşturun',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.grey,
@@ -107,6 +108,34 @@ class _PageRegisterState extends State<PageRegister> {
                               );
                             },
                           ),
+                          Container(
+                              padding: EdgeInsets.all(10),
+                              child: Center(
+                                child: RichText(
+                                  text: TextSpan(
+                                      text: 'Hesabınız zaten var mı?',
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 18),
+                                      children: <TextSpan>[
+                                        TextSpan(
+                                          text: ' Giriş Yap',
+                                          style: TextStyle(
+                                              color: Colors.blueAccent,
+                                              fontSize: 18),
+                                          recognizer: TapGestureRecognizer()
+                                            ..onTap = () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      PageLogin(),
+                                                ),
+                                              );
+                                            },
+                                        )
+                                      ]),
+                                ),
+                              ))
                         ],
                       ),
                     ),

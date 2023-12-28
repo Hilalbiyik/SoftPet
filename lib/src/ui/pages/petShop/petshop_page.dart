@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:softpati/src/ui/pages/drawer.dart';
+import 'package:softpati/src/ui/component/drawer.dart';
 
 class Product {
   final String name;
@@ -26,12 +26,12 @@ class ShoppingCart {
   }
 }
 
-class ShoppingPage extends StatefulWidget {
+class PageShopping extends StatefulWidget {
   @override
-  _ShoppingPageState createState() => _ShoppingPageState();
+  _PageShoppingState createState() => _PageShoppingState();
 }
 
-class _ShoppingPageState extends State<ShoppingPage> {
+class _PageShoppingState extends State<PageShopping> {
   final ShoppingCart _cart = ShoppingCart();
 
   List<Product> _availableProducts = [
@@ -46,7 +46,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-         drawer:ComtDrawer(),
+      drawer: CompDrawer(),
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(

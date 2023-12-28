@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:softpati/src/ui/component/custom_button.dart';
 import 'package:softpati/src/ui/component/custom_header.dart';
 import 'package:softpati/src/ui/component/custom_text_field.dart';
-import 'package:softpati/src/ui/pages/register_page.dart';
+import 'package:softpati/src/ui/pages/home/home_page.dart';
+import 'package:softpati/src/ui/pages/register/register_page.dart';
 
 class PageLogin extends StatefulWidget {
   PageLogin({super.key});
@@ -46,7 +47,7 @@ class _PageLoginState extends State<PageLogin> {
                         children: [
                           //Login - Text
                           Text(
-                            'Login',
+                            'GİRİŞ YAP',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.grey,
@@ -57,13 +58,13 @@ class _PageLoginState extends State<PageLogin> {
                           //E-mail Giriş
                           CompCustomTextField(
                             iconData: Icons.email,
-                            hintText: "Your email",
+                            hintText: "E-mail",
                           ),
                           SizedBox(height: 20),
                           //Şifre Giriş
                           CompCustomTextField(
                             iconData: Icons.lock,
-                            hintText: "Password",
+                            hintText: "Şifre",
                           ),
                           SizedBox(height: 40),
                           CompCustomButton(
@@ -73,23 +74,23 @@ class _PageLoginState extends State<PageLogin> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => PageRegister(),
+                                  builder: (context) => PageHome(),
                                 ),
                               );
                             },
                           ),
-                         
+
                           Container(
                               padding: EdgeInsets.all(10),
                               child: Center(
                                 child: RichText(
                                   text: TextSpan(
-                                      text: 'Don\'t have an account?',
+                                      text: 'Hesabınız yok mu?',
                                       style: TextStyle(
                                           color: Colors.black, fontSize: 18),
                                       children: <TextSpan>[
                                         TextSpan(
-                                          text: ' Sign up',
+                                          text: ' Kayıt ol',
                                           style: TextStyle(
                                               color: Colors.blueAccent,
                                               fontSize: 18),
@@ -101,7 +102,7 @@ class _PageLoginState extends State<PageLogin> {
                                                   builder: (context) =>
                                                       PageRegister(),
                                                 ),
-                                              );
+                                              );   ///
                                             },
                                         )
                                       ]),

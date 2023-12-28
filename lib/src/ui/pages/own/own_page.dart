@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:softpati/src/ui/pages/drawer.dart';
-import 'package:softpati/src/ui/pages/pet_profile_screen.dart';
- 
+import 'package:softpati/src/ui/component/drawer.dart';
+import 'package:softpati/src/ui/pages/petProfile/pet_profile_page.dart';
 
-class SahiplenPage extends StatefulWidget {
-  const SahiplenPage({super.key});
+class PageOwn extends StatefulWidget {
+  const PageOwn({super.key});
 
   @override
-  State<SahiplenPage> createState() => _SahiplenPageState();
+  State<PageOwn> createState() => _PageOwnState();
 }
 
-class _SahiplenPageState extends State<SahiplenPage> {
+class _PageOwnState extends State<PageOwn> {
   // This controller will store the value of the search bar
   final TextEditingController _searchController = TextEditingController();
 
@@ -24,7 +23,7 @@ class _SahiplenPageState extends State<SahiplenPage> {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => PetProfileScreen(),
+          builder: (context) => PageProfilePet(),
         ),
       ),
       child: Container(
@@ -77,7 +76,7 @@ class _SahiplenPageState extends State<SahiplenPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        drawer: ComtDrawer(),
+        drawer: CompDrawer(),
         appBar: AppBar(),
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         body: SafeArea(
@@ -92,115 +91,115 @@ class _SahiplenPageState extends State<SahiplenPage> {
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               _buildTrainingCard(
                 'assets/school.png',
                 "4 Gün Önce ",
                 "İstabul/Fatih",
-                PetProfileScreen(),
+                PageProfilePet(),
               ),
               // _buildTrainingCard(
               //     "Game Developer",
               //     'assets/school.png',
               //     "Tarihi: 12.01.2024",
-              //     PetProfileScreen(),
+              //     PageProfilePet(),
               //     "Kayıp Kedi"),
               // _buildTrainingCard(
               //     "Veri Analitiği",
               //     'assets/school.png',
               //     "ilan edilecektir.",
-              //     PetProfileScreen(),
+              //     PageProfilePet(),
               //     "Kayıp Kedi"),
               // _buildTrainingCard(
               //     "Bilişim Güvenliği Mimarı",
               //     'assets/school.png',
               //     "  ilan edilecektir",
-              //     PetProfileScreen(),
+              //     PageProfilePet(),
               //     "Kayıp Kedi"),
               // _buildTrainingCard(
               //     "Embedded Systems Developer",
               //     'assets/school.png',
               //     "ilan edilecektir.",
-              //     PetProfileScreen(),
+              //     PageProfilePet(),
               //     "Kayıp Kedi"),
             ],
           ),

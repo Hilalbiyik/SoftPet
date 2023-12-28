@@ -1,25 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:softpati/src/ui/pages/drawer.dart';
-import 'package:softpati/src/ui/pages/user_profil_screen.dart';
+import 'package:softpati/src/ui/component/drawer.dart';
+import 'package:softpati/src/ui/pages/user_profil_page.dart';
 
-class PetProfileScreen extends StatefulWidget {
-  const PetProfileScreen({super.key});
+class PageProfilePet extends StatefulWidget {
+  const PageProfilePet({super.key});
 
   @override
-  State<PetProfileScreen> createState() => _PetProfileScreenState();
+  State<PageProfilePet> createState() => _PageProfilePetState();
 }
 
-class _PetProfileScreenState extends State<PetProfileScreen> {
+class _PageProfilePetState extends State<PageProfilePet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar( backgroundColor: Color.fromARGB(255, 247, 223, 231),),
-         drawer:ComtDrawer(),
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 247, 223, 231),
+        leading: Container(
+          height: 15,
+          width: 15,
+          child: IconButton(
+            icon: Icon(Icons.menu), // Use the drawer icon here
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          ),
+        ),
+      ),
+      drawer: CompDrawer(),
       backgroundColor: Color.fromARGB(255, 247, 223, 231),
       body: SingleChildScrollView(
         child: Container(
           child: Padding(
-            padding: const EdgeInsets.only(top: 100),
+            padding: const EdgeInsets.only(top: 30),
             child: Column(
               children: [
                 Container(
@@ -63,7 +75,6 @@ class _PetProfileScreenState extends State<PetProfileScreen> {
                                 children: [
                                   Flexible(
                                     child: Container(
-                                      
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(15),
                                         color: const Color.fromARGB(
@@ -72,11 +83,14 @@ class _PetProfileScreenState extends State<PetProfileScreen> {
                                       width: 75,
                                       height: 75,
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
-                                          Text('Cinsiyet ',style: TextStyle(
-                                            fontWeight: FontWeight.bold
-                                          ),),
+                                          Text(
+                                            'Cinsiyet ',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                           Text('Dişi'),
                                         ],
                                       ),
@@ -93,10 +107,14 @@ class _PetProfileScreenState extends State<PetProfileScreen> {
                                       width: 75,
                                       height: 75,
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
-                                          Text('Yaş',
-                                          style: TextStyle(fontWeight: FontWeight.bold),),
+                                          Text(
+                                            'Yaş',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                           Text('2'),
                                         ],
                                       ),
@@ -113,11 +131,14 @@ class _PetProfileScreenState extends State<PetProfileScreen> {
                                       width: 75,
                                       height: 75,
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
-                                          Text('Kilo',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold),),
+                                          Text(
+                                            'Kilo',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                           Text('5 kg'),
                                         ],
                                       ),
@@ -128,17 +149,20 @@ class _PetProfileScreenState extends State<PetProfileScreen> {
                                     child: Container(
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(15),
-                                        color: Color.fromARGB(255, 205, 255, 225),
+                                        color:
+                                            Color.fromARGB(255, 205, 255, 225),
                                       ),
                                       width: 75,
                                       height: 75,
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
-                                          Text('Aşı',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold
-                                          ),),
+                                          Text(
+                                            'Aşı',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                           Text('İç parazit'),
                                         ],
                                       ),
@@ -156,7 +180,8 @@ class _PetProfileScreenState extends State<PetProfileScreen> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(10),
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             'Genel Bilgiler',
@@ -167,16 +192,21 @@ class _PetProfileScreenState extends State<PetProfileScreen> {
                                           ),
                                           Row(
                                             children: [
-                                              Text('Kaybolduğu Yer:',
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold),),
+                                              Text(
+                                                'Kaybolduğu Yer:',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
                                               Text(' Ataköy/İstanbul'),
                                             ],
                                           ),
                                           Row(
                                             children: [
                                               Text('Kaybolduğu Tarih:',
-                                              style: TextStyle(fontWeight: FontWeight.bold)),
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold)),
                                               Text(' 23.12.2023'),
                                             ],
                                           ),
@@ -189,12 +219,16 @@ class _PetProfileScreenState extends State<PetProfileScreen> {
                               SizedBox(height: 30),
                               Container(
                                 child: Padding(
-                                  padding: EdgeInsets.only(
-                                      bottom: MediaQuery.of(context).size.height * 0.1),
-                                      child:ListTile(
-                                      leading: CircleAvatar(backgroundColor: Colors.grey),
+                                    padding: EdgeInsets.only(
+                                        bottom:
+                                            MediaQuery.of(context).size.height *
+                                                0.1),
+                                    child: ListTile(
+                                      leading: CircleAvatar(
+                                          backgroundColor: Colors.grey),
                                       title: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             'Oya Özcan',
@@ -209,18 +243,23 @@ class _PetProfileScreenState extends State<PetProfileScreen> {
                                       trailing: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          IconButton(onPressed:(){}, icon: Icon(Icons.message)),
-                                          IconButton(onPressed:  () {
-                                            Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => UserProfileScreen(),
-        ),);
-                                          }, icon :Icon(Icons.add)),
+                                          IconButton(
+                                              onPressed: () {},
+                                              icon: Icon(Icons.message)),
+                                          IconButton(
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        PageProfileUser(),
+                                                  ),
+                                                );
+                                              },
+                                              icon: Icon(Icons.add)),
                                         ],
                                       ),
-                                    )
-                                ),
+                                    )),
                               ),
                             ],
                           ),

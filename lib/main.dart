@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:softpati/src/ui/pages/dene.dart';
-import 'package:softpati/src/ui/pages/home_page.dart';
-import 'package:softpati/src/ui/pages/login_page.dart';
+import 'package:softpati/src/ui/pages/home/home_page.dart';
+import 'package:softpati/src/ui/pages/login/login_page.dart';
+import 'package:softpati/src/ui/pages/splash/splash_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,8 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: PageLogin(),
-      
+      home: SplashView(),
     );
   }
 }

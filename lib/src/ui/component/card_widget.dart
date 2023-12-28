@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:softpati/src/ui/pages/pet_profile_screen.dart';
-import 'package:softpati/src/ui/pages/sahiplen_page.dart';
+import 'package:softpati/src/ui/pages/own/own_page.dart';
 import 'package:softpati/theme/app_color.dart';
 
 class CustomCard extends StatelessWidget {
@@ -19,12 +18,13 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(   onTap: () => Navigator.push(
+    return GestureDetector(
+      onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SahiplenPage(),
-        ),),
-
+          builder: (context) => PageOwn(),
+        ),
+      ),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
@@ -50,7 +50,7 @@ class CustomCard extends StatelessWidget {
                   style: GoogleFonts.outfit(
                     textStyle: textTheme.subtitle2,
                   )),
-      
+
               Text(
                 subtitle,
                 style: GoogleFonts.outfit(
