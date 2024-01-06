@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:softpati/src/ui/component/drawer.dart';
+import 'package:softpati/src/ui/pages/petShop/payment_page.dart';
 
 class Product {
   final String name;
@@ -93,7 +94,7 @@ class _PageShoppingState extends State<PageShopping> {
                             backgroundColor: Color.fromARGB(255, 146, 250, 150),
                             child: IconButton(
                               alignment: Alignment.center,
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.add,
                                 size: 15,
                                 color: Colors.white,
@@ -152,7 +153,7 @@ class _PageShoppingState extends State<PageShopping> {
                             radius: 15,
                             backgroundColor: Color.fromARGB(255, 247, 146, 139),
                             child: IconButton(
-                              icon: Icon(
+                              icon:const  Icon(
                                 Icons.remove,
                                 size: 15,
                                 color: Colors.white,
@@ -185,7 +186,7 @@ class _PageShoppingState extends State<PageShopping> {
                 child: Center(
                   child: Text(
                     'Sepetim: \$${_cart.calculateTotal().toStringAsFixed(2)}',
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                 )),
@@ -202,70 +203,13 @@ class _PageShoppingState extends State<PageShopping> {
                   ),
                 );
               },
-              child: Text(
+              child:const  Text(
                 'Ödeme Sayfasına Git',
                 style: TextStyle(color: Colors.white),
               ),
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class PaymentPage extends StatelessWidget {
-  final ShoppingCart cart;
-
-  const PaymentPage({Key? key, required this.cart}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Ödeme Sayfası'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Total Ücret: \$${cart.calculateTotal().toStringAsFixed(2)}',
-                style: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.bold)),
-            SizedBox(height: 20),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
-              onPressed: () {
-                // Simulate a payment process
-                // In a real-world scenario, you would integrate with a payment gateway
-                showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: Text('Ödeme Başarılım'),
-                    content: Text('Satın aldığınız için teşekkür ederiz!'),
-                    actions: [
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.orange),
-                        onPressed: () {
-                          Navigator.pop(context);
-                          Navigator.pop(context);
-                        },
-                        child: Text('Tamam',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                );
-              },
-              child: Text('Şimdi Öde',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold)),
-            ),
-          ],
-        ),
       ),
     );
   }

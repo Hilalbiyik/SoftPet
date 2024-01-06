@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:softpati/src/ui/pages/chat/chat_page.dart';
+import 'package:softpati/src/ui/pages/donat/donat_page.dart';
 import 'package:softpati/src/ui/pages/petShop/petshop_page.dart';
 import 'package:softpati/src/ui/pages/home/home_page.dart';
 import 'package:softpati/src/ui/pages/lost/lost_page.dart';
@@ -168,7 +170,12 @@ class _ComtDrawerState extends State<CompDrawer> {
             // Update the state of the app
             _onItemTapped(3);
             // Then close the ComtDrawer
-            Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PageDonat(), // Yönlendirilecek sayfa
+                ),
+              );
           },
         ),
         ListTile(
@@ -190,7 +197,12 @@ class _ComtDrawerState extends State<CompDrawer> {
             // Update the state of the app
             _onItemTapped(5);
             // Then close the ComtDrawer
-            Navigator.pop(context);
+               Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatPage(), // Yönlendirilecek sayfa
+                ),
+              );
           },
         ),
         ListTile(
