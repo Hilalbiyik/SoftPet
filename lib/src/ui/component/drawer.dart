@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:softpati/src/ui/pages/chat/chat_page.dart';
-import 'package:softpati/src/ui/pages/donat/donat_page.dart';
-import 'package:softpati/src/ui/pages/petShop/petshop_page.dart';
-import 'package:softpati/src/ui/pages/home/home_page.dart';
-import 'package:softpati/src/ui/pages/lost/lost_page.dart';
-import 'package:softpati/src/ui/pages/login/login_page.dart';
-import 'package:softpati/src/ui/pages/own/own_page.dart';
+import 'package:softpati/view/chat/chat_page.dart';
+import 'package:softpati/view/donat/donat_page.dart';
+import 'package:softpati/view/home/home_page.dart';
+import 'package:softpati/view/login/login_page.dart';
+import 'package:softpati/view/lost/lost_page.dart';
+import 'package:softpati/view/own/own_page.dart';
+
+import 'package:softpati/view/petShop/petshop_page.dart';
 
 class CompDrawer extends StatefulWidget {
   const CompDrawer({super.key, required});

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:softpati/src/ui/pages/own/own_page.dart';
+import 'package:softpati/view/own/own_page.dart';
+
 import 'package:softpati/theme/app_color.dart';
 
 class CustomCard extends StatelessWidget {

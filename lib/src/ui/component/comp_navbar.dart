@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:softpati/src/ui/pages/home/home_page.dart';
-import 'package:softpati/src/ui/pages/login/login_page.dart';
+import 'package:softpati/view/home/home_page.dart';
+import 'package:softpati/view/login/login_page.dart';
+
 
 class CompNavBar extends StatefulWidget {
   const CompNavBar({super.key});
