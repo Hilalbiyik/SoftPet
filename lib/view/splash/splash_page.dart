@@ -1,29 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:softpati/view/onborarding/onboarding_page.dart';
+import 'package:provider/provider.dart';
 import 'package:softpati/theme/app_color.dart';
+import 'package:softpati/view_model/splash_view_model.dart';
 
-class SplashView extends StatefulWidget {
-  @override
-  _SplashViewState createState() => _SplashViewState();
-}
-
-class _SplashViewState extends State<SplashView> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(Duration(seconds: 5), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => OnBoardingView(),
-        ),
-      );
-    });
-  }
+class SplashPage extends StatelessWidget {
+  const SplashPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    SplashViewModel viewModel =
+        Provider.of<SplashViewModel>(context, listen: false);
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      viewModel.getSplash(context);
+    });
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
