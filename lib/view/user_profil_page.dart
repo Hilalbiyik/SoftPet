@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:softpati/src/ui/component/drawer.dart';
+import 'package:softpati/view/component/drawer.dart';
 
 class PageProfileUser extends StatelessWidget {
   const PageProfileUser({Key? key}) : super(key: key);

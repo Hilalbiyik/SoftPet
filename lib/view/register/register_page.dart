@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
-import 'package:softpati/src/ui/component/custom_button.dart';
-import 'package:softpati/src/ui/component/custom_text_field.dart';
 import 'package:softpati/theme/app_color.dart';
+import 'package:softpati/view/component/custom_button.dart';
+import 'package:softpati/view/component/custom_text_field.dart';
 import 'package:softpati/view_model/register_view_model.dart';
 
 class PageRegister extends StatelessWidget {
@@ -55,6 +55,7 @@ class PageRegister extends StatelessWidget {
 
                           FadeInUp(
                             child: CompCustomTextField(
+                              obscureText: false,
                               controller: _fullNameController,
                               iconData: Icons.person,
                               hintText: "İsim - Soy İsim",
@@ -62,6 +63,7 @@ class PageRegister extends StatelessWidget {
                           ),
                           FadeInUp(
                             child: CompCustomTextField(
+                               obscureText: false,
                               controller: _emailController,
                               iconData: Icons.mail,
                               hintText: "E-mail",
@@ -69,6 +71,7 @@ class PageRegister extends StatelessWidget {
                           ),
                           FadeInUp(
                             child: CompCustomTextField(
+                               obscureText: true,
                               controller: _passwordController,
                               iconData: Icons.lock,
                               hintText: "Şifre",
@@ -77,6 +80,7 @@ class PageRegister extends StatelessWidget {
 
                           FadeInUp(
                             child: CompCustomTextField(
+                              obscureText: true,
                               iconData: Icons.lock,
                               hintText: "Şifre Tekrarla",
                             ),

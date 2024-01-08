@@ -10,14 +10,18 @@ class LoginViewModel with ChangeNotifier{
 
   FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void login(BuildContext context, String email, String password) async {
+
+   void login(BuildContext context, String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
+      print(_auth.currentUser != null);
+      _showSnackbar(context, "Login successfull");
       _openHomePage(context);
     } on FirebaseAuthException catch (e) {
+      _showSnackbar(context, "The password is invalid or the user does not have a password.");
       print(e.message);
     }
   }
@@ -41,5 +45,12 @@ class LoginViewModel with ChangeNotifier{
       ),
     );
     Navigator.pushReplacement(context, pageRoute);
+  }
+
+   void _showSnackbar(BuildContext context, String message) {
+    //Snackbar nesnesi ürettik
+    SnackBar snackBar = SnackBar(content: Text(message));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    print(message);
   }
 }

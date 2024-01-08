@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:softpati/src/ui/component/drawer.dart';
+import 'package:softpati/view/component/drawer.dart';
 
 class Product {
   final String name;

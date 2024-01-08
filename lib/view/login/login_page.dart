@@ -3,9 +3,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
-import 'package:softpati/src/ui/component/custom_button.dart';
-import 'package:softpati/src/ui/component/custom_text_field.dart';
 import 'package:softpati/theme/app_color.dart';
+import 'package:softpati/view/component/custom_button.dart';
+import 'package:softpati/view/component/custom_text_field.dart';
 import 'package:softpati/view/home/home_page.dart';
 import 'package:softpati/view/register/register_page.dart';
 import 'package:softpati/view_model/login_view_model.dart';
@@ -137,6 +137,7 @@ class PageLogin extends StatelessWidget {
   FadeInUp _buildPasswordTextField() {
     return FadeInUp(
         child: CompCustomTextField(
+          obscureText: true,
       iconData: Icons.lock,
       hintText: "Şifre",
     ));
@@ -145,6 +146,7 @@ class PageLogin extends StatelessWidget {
   FadeInUp _buildEmailTextField() {
     return FadeInUp(
         child: CompCustomTextField(
+          obscureText: false,
       iconData: Icons.email,
       hintText: "E-mail",
     ));

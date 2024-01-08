@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:softpati/src/ui/component/card_widget.dart';
-import 'package:softpati/src/ui/component/comp_navbar.dart';
-import 'package:softpati/src/ui/component/drawer.dart';
- 
+
 import 'package:softpati/theme/app_color.dart';
+import 'package:softpati/view/component/card_widget.dart';
+import 'package:softpati/view/component/comp_navbar.dart';
+import 'package:softpati/view/component/drawer.dart';
 import 'package:softpati/view/petProfile/pet_profile_page.dart';
 
 class PageHome extends StatelessWidget {
