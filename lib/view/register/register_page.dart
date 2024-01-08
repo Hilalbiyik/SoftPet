@@ -1,33 +1,36 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'package:softpati/src/ui/component/custom_button.dart';
 import 'package:softpati/src/ui/component/custom_text_field.dart';
+import 'package:softpati/theme/app_color.dart';
 import 'package:softpati/view/home/home_page.dart';
 import 'package:softpati/view/login/login_page.dart';
+import 'package:softpati/view_model/register_view_model.dart';
 
+class PageRegister extends StatelessWidget {
 
-class PageRegister extends StatefulWidget {
-  const PageRegister({super.key});
+  TextEditingController _emailController = TextEditingController();  
+  TextEditingController _fullNameController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
 
-  @override
-  State<PageRegister> createState() => _PageRegisterState();
-}
+  PageRegister({super.key});
 
-class _PageRegisterState extends State<PageRegister> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Color(0xffDDBFED),
+      backgroundColor: ConstantsColor.lightPurpleColor,
       body: Container(
         child: Padding(
           padding: const EdgeInsets.only(top: 120),
           child: Column(
             children: [
-              // Uygulama Logosu
-              Image.asset('assets/welcome.png', scale: 4),
+              buildHeaderLogo(),
               SizedBox(height: 20),
               Expanded(
                 child: Align(
@@ -47,96 +50,45 @@ class _PageRegisterState extends State<PageRegister> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           //Login - Text
-                          Text(
-                            'Hesap Oluşturun',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey,
-                              fontSize: 35,
-                            ),
-                          ),
+                          _buildCreateAccountText(),
                           SizedBox(
                             height: 10,
                           ),
 
-                          //E-mail Giriş
-                          CompCustomTextField(
-                            iconData: Icons.person,
-                            hintText: "İsim",
+                          FadeInUp(
+                            child: CompCustomTextField(
+                              iconData: Icons.person,
+                              hintText: "İsim - Soy İsim",
+                            ),
+                          ),
+                          FadeInUp(
+                            child: CompCustomTextField(
+                              iconData: Icons.mail,
+                              hintText: "E-mail",
+                              inputFormatters: [
+                                FilteringTextInputFormatter.deny(
+                                    RegExp(r'[^\s@]+@[^\s@]+\.[^\s@]+'))
+                              ],
+                            ),
+                          ),
+                          FadeInUp(
+                            child: CompCustomTextField(
+                              iconData: Icons.lock,
+                              hintText: "Şifre",
+                            ),
                           ),
 
-                          //Şifre Giriş
-                          CompCustomTextField(
-                            iconData: Icons.person,
-                            hintText: "Soy İsim",
+                          FadeInUp(
+                            child: CompCustomTextField(
+                              iconData: Icons.lock,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              hintText: "Şifre Tekrarla",
+                            ),
                           ),
-
-                          CompCustomTextField(
-                            iconData: Icons.mail,
-                            hintText: "E-mail",
-                            inputFormatters: [
-                              FilteringTextInputFormatter.deny(
-                                  RegExp(r'[^\s@]+@[^\s@]+\.[^\s@]+'))
-                            ],
-                          ),
-                          CompCustomTextField(
-                            iconData: Icons.phone,
-                            hintText: "+ 90 (5XX) XXX XXX",
-                          ),
-
-                          CompCustomTextField(
-                            iconData: Icons.lock,
-                            hintText: "Şifre",
-                          ),
-
-                          CompCustomTextField(
-                            iconData: Icons.lock,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly
-                            ],
-                            hintText: "Şifre Tekrarla",
-                          ),
-
-                          CompCustomButton(
-                            buttonText: 'KAYIT OL',
-                            onPressedCallback: () {
-                              //Giriş Yap Butonu
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PageHome(),
-                                ),
-                              );
-                            },
-                          ),
-                          Container(
-                              padding: EdgeInsets.all(10),
-                              child: Center(
-                                child: RichText(
-                                  text: TextSpan(
-                                      text: 'Hesabınız zaten var mı?',
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 18),
-                                      children: <TextSpan>[
-                                        TextSpan(
-                                          text: ' Giriş Yap',
-                                          style: TextStyle(
-                                              color: Colors.blueAccent,
-                                              fontSize: 18),
-                                          recognizer: TapGestureRecognizer()
-                                            ..onTap = () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      PageLogin(),
-                                                ),
-                                              );
-                                            },
-                                        )
-                                      ]),
-                                ),
-                              ))
+                          _buildRegisterButton(context),
+                          _buildLoginText(context)
                         ],
                       ),
                     ),
@@ -149,4 +101,73 @@ class _PageRegisterState extends State<PageRegister> {
       ),
     );
   }
+
+  FadeInUp _buildLoginText(BuildContext context) {
+    RegisterViewModel viewModel = Provider.of(
+      context,
+      listen: false,
+    );
+    return FadeInUp(
+        child: Container(
+            padding: EdgeInsets.all(10),
+            child: Center(
+              child: RichText(
+                text: TextSpan(
+                    text: 'Hesabınız zaten var mı?',
+                    style: TextStyle(color: Colors.black, fontSize: 18),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: ' Giriş Yap',
+                        style:
+                            TextStyle(color: Colors.blueAccent, fontSize: 18),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            viewModel.openLoginPage(context);
+                          },
+                      )
+                    ]),
+              ),
+            )));
+  }
+
+  FadeInUp _buildRegisterButton(BuildContext context) {
+     RegisterViewModel viewModel = Provider.of(
+      context,
+      listen: false,
+    );
+    return FadeInUp(
+      child: CompCustomButton(
+        buttonText: 'KAYIT OL',
+        onPressedCallback: () {
+         viewModel.register(
+          context,
+          _emailController.text.trim(),
+          _passwordController.text.trim(),
+          _fullNameController.text.trim(),
+        );
+        },
+      ),
+    );
+  }
+
+  Text _buildCreateAccountText() {
+    return Text(
+      'Hesap Oluşturun',
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: Colors.grey,
+        fontSize: 35,
+      ),
+    );
+  }
+}
+
+Widget buildHeaderLogo() {
+  return FadeInDown(
+    child: Lottie.asset(
+      ConstantsAdress.donate_animation,
+      height: 180,
+      fit: BoxFit.cover,
+    ),
+  );
 }

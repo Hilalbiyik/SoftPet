@@ -23,10 +23,55 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			b1i5I3NoKgEveDsdji00QU7NbC4=
+			r0qG7rgWS0ZtUk2xA5Rc+Dph33w=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"6f58b92373682a012f783b1d8e2d34414ecd6c2e"</string>
+			<string>cdhash H"af4a86eeb8164b466d524db103945cf83a61df7c"</string>
+		</dict>
+		<key>Frameworks/FBLPromises.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			VKmjm5LsxsgUVakrPBIcsea/AOU=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"54a9a39b92ecc6c81455a92b3c121cb1e6bf00e5"</string>
+		</dict>
+		<key>Frameworks/FirebaseAppCheckInterop.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			3LOfzTCk3997Hqk8QGZtAZ/chtg=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"dcb39fcd30a4dfdf7b1ea93c40666d019fdc86d8"</string>
+		</dict>
+		<key>Frameworks/FirebaseAuth.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			x3tCPzznplBBb7hZ71Bi/7kgwHY=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"c77b423f3ce7a650416fb859ef5062ffb920c076"</string>
+		</dict>
+		<key>Frameworks/FirebaseCore.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			LhCx37IUePAcdOr0PjbcX8w69Uw=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"2e10b1dfb21478f01c74eaf43e36dc5fcc3af54c"</string>
+		</dict>
+		<key>Frameworks/FirebaseCoreInternal.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			GRe9kIVEXh7ba6mjQG+cMx/Rj6s=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"1917bd9085445e1edb6ba9a3406f9c331fd18fab"</string>
 		</dict>
 		<key>Frameworks/FlutterMacOS.framework</key>
 		<dict>
@@ -36,6 +81,24 @@
 			</data>
 			<key>requirement</key>
 			<string>cdhash H"aebbf97621ca93d5a53a17be0cac0db92755d9d0"</string>
+		</dict>
+		<key>Frameworks/GTMSessionFetcher.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			nAOro+UmghHO7s4U2qqNNFSzQek=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"9c03aba3e5268211ceeece14daaa8d3454b341e9"</string>
+		</dict>
+		<key>Frameworks/GoogleUtilities.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			QtgPufmwthic6oxMN9z7maQkUrU=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"42d80fb9f9b0b6189cea8c4c37dcfb99a42452b5"</string>
 		</dict>
 		<key>Frameworks/libswiftAppKit.dylib</key>
 		<dict>
@@ -194,10 +257,10 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			EBKrwQBvZu8AvqVEsxI2j5k9zO4=
+			VX0Qsl6UxsmbodfKTijp8wjRUcs=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"1012abc1006f66ef00bea544b312368f993dccee"</string>
+			<string>cdhash H"557d10b25e94c6c99ba1d7ca4e28e9f308d151cb"</string>
 		</dict>
 		<key>Resources/AppIcon.icns</key>
 		<dict>

@@ -1,33 +1,34 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'package:softpati/src/ui/component/custom_button.dart';
-import 'package:softpati/src/ui/component/custom_header.dart';
 import 'package:softpati/src/ui/component/custom_text_field.dart';
+import 'package:softpati/theme/app_color.dart';
 import 'package:softpati/view/home/home_page.dart';
 import 'package:softpati/view/register/register_page.dart';
- 
+import 'package:softpati/view_model/login_view_model.dart';
 
-class PageLogin extends StatefulWidget {
+class PageLogin extends StatelessWidget {
+
+   TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
   PageLogin({super.key});
 
-  @override
-  State<PageLogin> createState() => _PageLoginState();
-}
-
-class _PageLoginState extends State<PageLogin> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Color(0xffDDBFED),
+      backgroundColor: ConstantsColor.lightPurpleColor,
       body: Container(
         child: Padding(
           padding: const EdgeInsets.only(top: 120),
           child: Column(
             children: [
-              // Uygulama Logosu
-              Image.asset('assets/welcome.png', scale: 4),
+              buildHeaderLogo(),
               SizedBox(height: 20),
               Expanded(
                 child: Align(
@@ -46,69 +47,18 @@ class _PageLoginState extends State<PageLogin> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          //Login - Text
-                          Text(
-                            'GİRİŞ YAP',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey,
-                              fontSize: 35,
-                            ),
-                          ),
-                          SizedBox(height: 80),
+                          _buildTextLogin(),
+                          SizedBox(height: 70),
                           //E-mail Giriş
-                          CompCustomTextField(
-                            iconData: Icons.email,
-                            hintText: "E-mail",
-                          ),
-                          SizedBox(height: 20),
+                          _buildEmailTextField(),
+                          SizedBox(height: 10),
                           //Şifre Giriş
-                          CompCustomTextField(
-                            iconData: Icons.lock,
-                            hintText: "Şifre",
-                          ),
-                          SizedBox(height: 40),
-                          CompCustomButton(
-                            buttonText: 'GİRİŞ YAP',
-                            onPressedCallback: () {
-                              //Giriş Yap Butonu
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PageHome(),
-                                ),
-                              );
-                            },
-                          ),
+                          _buildPasswordTextField(),
+                          _buildForgotPassword(),
 
-                          Container(
-                              padding: EdgeInsets.all(10),
-                              child: Center(
-                                child: RichText(
-                                  text: TextSpan(
-                                      text: 'Hesabınız yok mu?',
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 18),
-                                      children: <TextSpan>[
-                                        TextSpan(
-                                          text: ' Kayıt ol',
-                                          style: TextStyle(
-                                              color: Colors.blueAccent,
-                                              fontSize: 18),
-                                          recognizer: TapGestureRecognizer()
-                                            ..onTap = () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      PageRegister(),
-                                                ),
-                                              );   ///
-                                            },
-                                        )
-                                      ]),
-                                ),
-                              ))
+                          SizedBox(height: 40),
+                          _buildLoginButton(context),
+                          _buildRegisterTextButton(context),
                         ],
                       ),
                     ),
@@ -118,6 +68,107 @@ class _PageLoginState extends State<PageLogin> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  FadeInUp _buildRegisterTextButton(BuildContext context) {
+    LoginViewModel viewModel = Provider.of(
+      context,
+      listen: false,
+    );
+    return FadeInUp(
+      child: Container(
+          padding: EdgeInsets.all(10),
+          child: Center(
+            child: RichText(
+              text: TextSpan(
+                  text: 'Hesabınız yok mu?',
+                  style: TextStyle(color: Colors.black, fontSize: 18),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: ' Kayıt ol',
+                      style: TextStyle(color: Colors.blueAccent, fontSize: 18),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          viewModel.openRegisterPage(context);
+                        },
+                    )
+                  ]),
+            ),
+          )),
+    );
+  }
+
+  Widget _buildLoginButton(BuildContext context) {
+    LoginViewModel viewModel = Provider.of(
+      context,
+      listen: false,
+    );
+    return FadeInUp(
+        child: CompCustomButton(
+      buttonText: 'GİRİŞ YAP',
+      onPressedCallback: () {
+        viewModel.login(
+          context,
+          _emailController.text.trim(),
+          _passwordController.text.trim(),
+        
+        );
+      },
+    ));
+  }
+
+  FadeInUp _buildForgotPassword() {
+    return FadeInUp(
+        child: Align(
+      alignment: Alignment.bottomRight,
+      child: Padding(
+        padding: const EdgeInsets.only(right: 25),
+        child: Text(
+          "Şifremi Unuttum",
+          textAlign: TextAlign.end,
+          style: TextStyle(fontSize: 16),
+        ),
+      ),
+    ));
+  }
+
+  FadeInUp _buildPasswordTextField() {
+    return FadeInUp(
+        child: CompCustomTextField(
+      iconData: Icons.lock,
+      hintText: "Şifre",
+    ));
+  }
+
+  FadeInUp _buildEmailTextField() {
+    return FadeInUp(
+        child: CompCustomTextField(
+      iconData: Icons.email,
+      hintText: "E-mail",
+    ));
+  }
+
+  FadeIn _buildTextLogin() {
+    return FadeIn(
+      child: Text(
+        'GİRİŞ YAP',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.grey,
+          fontSize: 35,
+        ),
+      ),
+    );
+  }
+
+  Widget buildHeaderLogo() {
+    return FadeInDown(
+      child: Lottie.asset(
+        ConstantsAdress.donate_animation,
+        height: 180,
+        fit: BoxFit.cover,
       ),
     );
   }

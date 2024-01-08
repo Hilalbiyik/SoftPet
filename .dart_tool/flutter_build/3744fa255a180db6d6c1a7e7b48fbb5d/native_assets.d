@@ -1,0 +1,1 @@
+ /Users/hilalbiyik/SoftPet/.dart_tool/flutter_build/3744fa255a180db6d6c1a7e7b48fbb5d/native_assets.yaml: 

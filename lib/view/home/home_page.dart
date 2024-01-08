@@ -7,14 +7,9 @@ import 'package:softpati/src/ui/component/drawer.dart';
 import 'package:softpati/theme/app_color.dart';
 import 'package:softpati/view/petProfile/pet_profile_page.dart';
 
-class PageHome extends StatefulWidget {
+class PageHome extends StatelessWidget {
   const PageHome({super.key});
 
-  @override
-  State<PageHome> createState() => _PageHomeState();
-}
-
-class _PageHomeState extends State<PageHome> {
   @override
   Widget build(BuildContext context) {
     final double navBarHeight = 80.0;

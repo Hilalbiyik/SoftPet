@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:softpati/theme/app_color.dart';
 
 class CompCustomButton extends StatelessWidget {
   final String buttonText;
@@ -21,13 +22,13 @@ class CompCustomButton extends StatelessWidget {
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
               if (states.contains(MaterialState.pressed)) {
-                return Colors.purple;
+                return ConstantsColor.purpleColor;
               }
-              return Color(0xffDDBFED);
+              return ConstantsColor.lightPurpleColor;
             }),
             side: MaterialStateProperty.resolveWith<BorderSide>((states) {
               return BorderSide(
-                color: Color(0xffDDBFED),
+                color: ConstantsColor.lightPurpleColor,
                 width: 2.0,
               );
             }),

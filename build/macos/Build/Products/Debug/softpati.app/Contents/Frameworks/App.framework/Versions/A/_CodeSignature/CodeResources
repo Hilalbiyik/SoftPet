@@ -10,11 +10,11 @@
 		</data>
 		<key>Resources/flutter_assets/AssetManifest.bin</key>
 		<data>
-		nIpLqHf9Svpg5FfuGa8EHqStWTQ=
+		9xUrZpMVGEpjt9e4rcztyNjEFpo=
 		</data>
 		<key>Resources/flutter_assets/AssetManifest.json</key>
 		<data>
-		iBjrl35MMiQOeqtAumxmCeIx4SQ=
+		K7Fl6aaYt7LBM3jV+tIzuHu8Q5M=
 		</data>
 		<key>Resources/flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,7 +22,19 @@
 		</data>
 		<key>Resources/flutter_assets/NOTICES.Z</key>
 		<data>
-		NEP1GXrVmzDnRIZ2RK7U9nzPf6Q=
+		S6cvhx3zhxwMYGp/jL7EjvBgIe8=
+		</data>
+		<key>Resources/flutter_assets/assets/cat.jpg</key>
+		<data>
+		e3Y/9QDblKGBukAieHk+Bl2JcjE=
+		</data>
+		<key>Resources/flutter_assets/assets/donate_animationn.json</key>
+		<data>
+		/beB2e2EjoFxgzp9b3CXDwjuzO4=
+		</data>
+		<key>Resources/flutter_assets/assets/splash_animation.json</key>
+		<data>
+		FiTV682bhPvZ4QcHoWNd1/uiqP4=
 		</data>
 		<key>Resources/flutter_assets/assets/welcome.png</key>
 		<data>
@@ -38,7 +50,7 @@
 		</data>
 		<key>Resources/flutter_assets/kernel_blob.bin</key>
 		<data>
-		sW4SHzUsz/sOzk+u4ldNR8XDSSY=
+		jkrkduqTCeEhs30/UDATrpwEtaU=
 		</data>
 		<key>Resources/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -66,14 +78,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xnDoVXpRhcWecDvVTsK2GBZ6aVIdmmDnLaWLqOLaigk=
+			KlbW45eNIUjM+YoMJ/DEgmi/O7/A8p+Ao35gNnf20f4=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NqwnqHNPvmqt0m6XgR2aPUqb3AvIxrKr551kCVx/sAM=
+			RoYOfeRZcljtt0PD5Ayew2WH06Z+qEF0MFCXdxAdM6U=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/FontManifest.json</key>
@@ -87,7 +99,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7IEatvWa6RYz8adwZf/DGUm9BACebKI4zHh+iLpRyLU=
+			NDpwVrIeHEgUQ8ofm0uh6ZW5KaEb5OBBZVRpyX9Kjyw=
+			</data>
+		</dict>
+		<key>Resources/flutter_assets/assets/cat.jpg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bqsDoxatf1zQ8o8xtA8JDJcSwew0Xf4l8TWX/AJruC4=
+			</data>
+		</dict>
+		<key>Resources/flutter_assets/assets/donate_animationn.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			mcghYVvehtIg4g+Ym6v3KRgcE0AIskIvyrAOUyTOg+0=
+			</data>
+		</dict>
+		<key>Resources/flutter_assets/assets/splash_animation.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Av0whG/N9rqEMmDVI9rufOaFwhMLCwR/oDY8iW7zRzg=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/assets/welcome.png</key>
@@ -115,7 +148,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			viZ6jnb+/4zqn3TFYP0WxazaOggs0MKowtWu6rGQDuc=
+			H5HI3a0XjTm6lZRU34eD0XDqtmeOg85B2xKKyZC67L8=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

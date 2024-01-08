@@ -40,7 +40,9 @@ class ConstantsAdress {
       "https://assets6.lottiefiles.com/packages/lf20_8Psf5B.json";
   static const String sampleLottieWelcomeUrl =
       'https://assets5.lottiefiles.com/packages/lf20_qnqidn8g.json';
-
+static const String splash_animation = 'assets/splash_animation.json';
+static const String donate_animation = 'assets/donate_animationn.json';
+    
   static const String avatarImage =
       'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80';
   static const String avatarImage2 =

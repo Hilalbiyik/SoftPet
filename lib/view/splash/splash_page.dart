@@ -16,12 +16,12 @@ class SplashPage extends StatelessWidget {
     });
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
+      body: Align(
+        alignment: Alignment.center,
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.5,
-          height: MediaQuery.of(context).size.width * 0.5,
-          child: Lottie.network(
-            ConstantsAdress.sampleLottieUrl,
+         width: MediaQuery.of(context).size.width * 0.9,
+          child: Lottie.asset(
+            ConstantsAdress.splash_animation,
             fit: BoxFit.cover,
           ),
         ),
