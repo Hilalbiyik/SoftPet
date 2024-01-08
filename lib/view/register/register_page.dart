@@ -7,8 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:softpati/src/ui/component/custom_button.dart';
 import 'package:softpati/src/ui/component/custom_text_field.dart';
 import 'package:softpati/theme/app_color.dart';
-import 'package:softpati/view/home/home_page.dart';
-import 'package:softpati/view/login/login_page.dart';
 import 'package:softpati/view_model/register_view_model.dart';
 
 class PageRegister extends StatelessWidget {
@@ -57,22 +55,21 @@ class PageRegister extends StatelessWidget {
 
                           FadeInUp(
                             child: CompCustomTextField(
+                              controller: _fullNameController,
                               iconData: Icons.person,
                               hintText: "İsim - Soy İsim",
                             ),
                           ),
                           FadeInUp(
                             child: CompCustomTextField(
+                              controller: _emailController,
                               iconData: Icons.mail,
                               hintText: "E-mail",
-                              inputFormatters: [
-                                FilteringTextInputFormatter.deny(
-                                    RegExp(r'[^\s@]+@[^\s@]+\.[^\s@]+'))
-                              ],
                             ),
                           ),
                           FadeInUp(
                             child: CompCustomTextField(
+                              controller: _passwordController,
                               iconData: Icons.lock,
                               hintText: "Şifre",
                             ),
@@ -81,9 +78,6 @@ class PageRegister extends StatelessWidget {
                           FadeInUp(
                             child: CompCustomTextField(
                               iconData: Icons.lock,
-                              inputFormatters: [
-                                FilteringTextInputFormatter.digitsOnly
-                              ],
                               hintText: "Şifre Tekrarla",
                             ),
                           ),

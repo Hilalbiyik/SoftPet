@@ -5,12 +5,13 @@ class CompCustomTextField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final String? hintText;
   final IconData? iconData;
+  final TextEditingController? controller;
 
   CompCustomTextField({
     Key? key,
     this.inputFormatters,
     this.hintText,
-    this.iconData,
+    this.iconData, this.controller,
   }) : super(key: key);
 
   @override
@@ -22,6 +23,7 @@ class CompCustomTextField extends StatelessWidget {
           SizedBox(
             height: 45.0,
             child: TextField(
+              controller: controller,
               inputFormatters: inputFormatters,
               decoration: InputDecoration(
                 hintText: hintText,

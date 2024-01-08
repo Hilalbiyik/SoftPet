@@ -12,31 +12,34 @@ class RegisterViewModel with ChangeNotifier {
   FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  void addPerson(BuildContext context, String nameSurname) async {
-    Navigator.pop(context);
-  }
-
-  Future<void> register(BuildContext context, String email, String password,
-      String fullName) async {
+  Future<void> register(BuildContext context, String email, String password, String fullName) async {
     try {
       await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-
       User? user = _auth.currentUser;
       if (user != null) {
         await user.updateDisplayName(fullName);
-        //await _firestore.collection("users").doc(user.uid).set(user.email,user.));
+        await _firestore.collection("users").doc(user.uid).set({
+          "fullName": fullName,
+        });
       }
-
       _openHomePage(context);
     } on FirebaseAuthException catch (e) {
       print("Hata: ${e.message}");
+      if (e.code == "email-already-in-use") {
+        // E-posta adresi zaten kullanımda
+        print("User already exists. Try to log in.");
+      } else {
+        // Diğer hata durumları
+        print("An error occurred during registration. Please try again.");
+      }
     }
   }
 
-  void _openHomePage(BuildContext context) {
+
+    void _openHomePage(BuildContext context) {
     MaterialPageRoute pageRoute = MaterialPageRoute(
       builder: (context) => ChangeNotifierProvider(
         create: (context) => HomeViewModel(),
