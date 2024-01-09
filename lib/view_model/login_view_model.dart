@@ -10,22 +10,46 @@ class LoginViewModel with ChangeNotifier{
 
   FirebaseAuth _auth = FirebaseAuth.instance;
 
-
-   void login(BuildContext context, String email, String password) async {
+  //
+  // void login(BuildContext context, String email, String password) async {
+  //   try {
+  //     await _auth.signInWithEmailAndPassword(
+  //       email: email,
+  //       password: password,
+  //     );
+  //     print(_auth.currentUser != null);
+  //     _showSnackbar(context, "Login successfull");
+  //     _openHomePage(context);
+  //   } on FirebaseAuthException catch (e) {
+  //     _showSnackbar(context, "Login failed. Error: ${e}");
+  //     print(e);
+  //   }
+  // }
+  void login(BuildContext context, String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
       print(_auth.currentUser != null);
-      _showSnackbar(context, "Login successfull");
+      _showSnackbar(context, "Login successful");
       _openHomePage(context);
     } on FirebaseAuthException catch (e) {
-      _showSnackbar(context, "The password is invalid or the user does not have a password.");
-      print(e.message);
+      String errorMessage = "Login failed. Error: ";
+      if (e.code == 'user-not-found') {
+        errorMessage += "User not found.";
+      } else if (e.code == 'wrong-password') {
+        errorMessage += "Invalid password.";
+      } else {
+        errorMessage += e.message ?? "Unknown error";
+      }
+
+      _showSnackbar(context, errorMessage);
+      print(e);
     }
   }
-  
+
+
 
   void openRegisterPage(BuildContext context) {
     MaterialPageRoute pageRoute = MaterialPageRoute(

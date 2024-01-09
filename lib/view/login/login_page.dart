@@ -137,6 +137,7 @@ class PageLogin extends StatelessWidget {
   FadeInUp _buildPasswordTextField() {
     return FadeInUp(
         child: CompCustomTextField(
+         controller: _passwordController,
           obscureText: true,
       iconData: Icons.lock,
       hintText: "Şifre",
@@ -146,6 +147,7 @@ class PageLogin extends StatelessWidget {
   FadeInUp _buildEmailTextField() {
     return FadeInUp(
         child: CompCustomTextField(
+          controller: _emailController,
           obscureText: false,
       iconData: Icons.email,
       hintText: "E-mail",

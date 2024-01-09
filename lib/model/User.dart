@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 
-class User with ChangeNotifier {
+class Users with ChangeNotifier {
   String? id;
   String name;
   String surname;
-  String image;
+  String? profileimg;
 
-  User(this.name, this.surname, this.image);
+  Users(this.name, this.surname, this.profileimg);
 
-  User.fromMap(this.id, Map<String, dynamic> map)
+  Users.fromMap(this.id, Map<String, dynamic> map)
       : name = map["name"],
         surname =map["surname"],
-        image =map["image"];
+        profileimg =map["image"];
 
 
   Map<String, dynamic> toMap() {
     return {
       "name": name,
       "surname": surname,
-      "map": image,
+      "image": profileimg,
     };
   }
 }

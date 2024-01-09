@@ -43,6 +43,11 @@ class PageHome extends StatelessWidget {
     ];
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: (){},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
         backgroundColor: Colors.white,
       ),

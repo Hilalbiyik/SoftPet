@@ -1,20 +1,36 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:softpati/view/home/home_page.dart';
 import 'package:softpati/view/onboarding/onboarding_page.dart';
+import 'package:softpati/view_model/home_view_model.dart';
 import 'package:softpati/view_model/onboarding_view_model.dart';
 
 class SplashViewModel with ChangeNotifier {
   void getSplash(BuildContext context) {
-    Future.delayed(Duration(seconds: 5), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ChangeNotifierProvider(
-            create: (BuildContext context) => OnBoardingViewModel(),
-            child: OnBoardingPage(),
+    Future.delayed(Duration(seconds: 2), () async {
+      User? user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ChangeNotifierProvider(
+              create: (BuildContext context) =>HomeViewModel(),
+              child: PageHome(),
+            ),
           ),
-        ),
-      );
+        );
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ChangeNotifierProvider(
+              create: (BuildContext context) => OnBoardingViewModel(),
+              child: OnBoardingPage(),
+            ),
+          ),
+        );
+      }
     });
   }
 }

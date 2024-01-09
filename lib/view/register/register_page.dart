@@ -12,7 +12,8 @@ import 'package:softpati/view_model/register_view_model.dart';
 class PageRegister extends StatelessWidget {
 
   TextEditingController _emailController = TextEditingController();  
-  TextEditingController _fullNameController = TextEditingController();
+  TextEditingController _firstNameController = TextEditingController();
+  TextEditingController _lastNamecontroller = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
   PageRegister({super.key});
@@ -56,9 +57,17 @@ class PageRegister extends StatelessWidget {
                           FadeInUp(
                             child: CompCustomTextField(
                               obscureText: false,
-                              controller: _fullNameController,
+                              controller: _firstNameController,
                               iconData: Icons.person,
-                              hintText: "İsim - Soy İsim",
+                              hintText: "İsim",
+                            ),
+                          ),
+                          FadeInUp(
+                            child: CompCustomTextField(
+                              obscureText: false,
+                              controller: _lastNamecontroller,
+                              iconData: Icons.person,
+                              hintText: "Soy İsim",
                             ),
                           ),
                           FadeInUp(
@@ -75,14 +84,6 @@ class PageRegister extends StatelessWidget {
                               controller: _passwordController,
                               iconData: Icons.lock,
                               hintText: "Şifre",
-                            ),
-                          ),
-
-                          FadeInUp(
-                            child: CompCustomTextField(
-                              obscureText: true,
-                              iconData: Icons.lock,
-                              hintText: "Şifre Tekrarla",
                             ),
                           ),
                           _buildRegisterButton(context),
@@ -141,7 +142,9 @@ class PageRegister extends StatelessWidget {
           context,
           _emailController.text.trim(),
           _passwordController.text.trim(),
-          _fullNameController.text.trim(),
+          _firstNameController.text.trim(),
+           _lastNamecontroller.text.trim(),
+
         );
         },
       ),
