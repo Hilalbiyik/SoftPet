@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:provider/provider.dart';
+import 'package:softpati/dene.dart';
+import 'package:softpati/homee_view_model.dart';
 import 'package:softpati/theme/app_color.dart';
 import 'package:softpati/view/component/card_widget.dart';
-import 'package:softpati/view/component/comp_navbar.dart';
 import 'package:softpati/view/component/drawer.dart';
+import 'package:softpati/view/donat/donat_page.dart';
 import 'package:softpati/view/petProfile/pet_profile_page.dart';
+import 'package:softpati/view_model/donat_view_model.dart';
 
 class PageHome extends StatelessWidget {
   const PageHome({super.key});
@@ -29,32 +32,43 @@ class PageHome extends StatelessWidget {
         backgroundColor: ConstantsColor.orangeColor,
       ),
       CustomCard(
+        onPressed: () {
+           ChangeNotifierProvider(
+             create: (BuildContext context) =>DonatViewModel(),
+            child: PageDonat(),
+           );
+        },
+
         icon: "🙅‍♂️",
         title: 'Bağış',
-        subtitle: '24 checkers',
+        subtitle: '24 chec',
         backgroundColor: ConstantsColor.pinkColor,
       ),
       CustomCard(
+        onPressed: () {
+          // ChangeNotifierProvider(
+          //   create: (BuildContext context) =>SplashViewModel(),
+          //   child: SplashPage(),
+          // );
+        },
         icon: "🙅‍♂️",
         title: 'Eğitim Videoları',
         subtitle: '20 big rains',
         backgroundColor: ConstantsColor.lightPurpleColor,
       ),
     ];
-
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: (){},
-      ),
+
+      floatingActionButton: _buildFloatAction(context),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
         backgroundColor: Colors.white,
       ),
       drawer: CompDrawer(),
       backgroundColor: Colors.white,
-      bottomNavigationBar: CompNavBar(),
-      //bottomNavigationBar: buildBottomNavigationBar(navBarHeight, navBarWidth),
+      //bottomNavigationBar: CompNavBar(),
+      bottomNavigationBar: buildBottomNavigationBar(navBarHeight, navBarWidth),
+
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -69,7 +83,7 @@ class PageHome extends StatelessWidget {
                       ),
                   child:
                       buildHeaderItems(context, ConstantsAdress.avatarImage2))),
-          buildSearchBarItem(),
+          //buildSearchBarItem(),
           Expanded(
             flex: 2,
             child: buildCardPano(),
@@ -84,6 +98,20 @@ class PageHome extends StatelessWidget {
     );
   }
 
+
+  Widget _buildFloatAction(BuildContext context){
+
+    return FloatingActionButton(
+
+      child: Icon(Icons.add),
+      onPressed: () {
+        ChangeNotifierProvider(
+          create: (BuildContext context) =>HomeScreenProvider(),
+          child: HomeScreen(),
+        );
+      },
+    );
+  }
   Padding buildTitleItem(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 20, top: 20),
@@ -221,8 +249,7 @@ Padding buildCardPano() {
     padding: EdgeInsets.symmetric(horizontal: 20),
     child: ListView.builder(
       scrollDirection: Axis.horizontal,
-      itemCount:
-          2, 
+      itemCount: 2,
       itemBuilder: (BuildContext context, int index) {
         return buildImageCard(index);
       },
@@ -240,14 +267,24 @@ Card buildImageCard(int index) {
       height: 100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        image: DecorationImage(
-          image: AssetImage(index == 0
-                  ? 'assets/image1.jpg' // İlk resmin dosya yolu
-                  : 'assets/image2.jpg' // İkinci resmin dosya yolu
-              ),
-          fit: BoxFit.cover,
-        ),
+        // image: DecorationImage(
+        //   // image: AssetImage(index == 0
+        //   //         ? 'assets/image1.jpg' // İlk resmin dosya yolu
+        //   //         : 'assets/image2.jpg' // İkinci resmin dosya yolu
+        //   //     ),
+        //   fit: BoxFit.cover,
+        // ),
       ),
     ),
   );
+}
+
+void openHomeePage(BuildContext context) {
+  MaterialPageRoute pageRoute = MaterialPageRoute(
+    builder: (context) => ChangeNotifierProvider(
+      create: (context) => HomeScreenProvider(),
+      child: PageHome(),
+    ),
+  );
+  Navigator.pushReplacement(context, pageRoute);
 }

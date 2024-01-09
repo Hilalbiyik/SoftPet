@@ -8,13 +8,14 @@ class CustomCard extends StatelessWidget {
   final String icon;
   final String title;
   final String subtitle;
+  final VoidCallback? onPressed;
   final Color backgroundColor;
 
   CustomCard({
     required this.title,
     required this.subtitle,
     required this.backgroundColor,
-    required this.icon,
+    required this.icon, this.onPressed,
   });
 
   @override
